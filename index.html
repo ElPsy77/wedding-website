@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Свадебное приглашение | Андрей и Анна</title>
+    <meta
+      name="description"
+      content="Свадебное приглашение Андрея и Анны"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Mulish:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="intro-active">
+    <section class="intro-screen" id="introScreen" aria-label="Вступительный экран">
+      <div class="intro-screen__card">
+        <p class="intro-screen__eyebrow">Добро пожаловать</p>
+        <h1>Свадьба Андрея и Анны</h1>
+        <div class="intro-screen__photo">
+          <img src="./img/IMG_1942.JPG" alt="Андрей и Анна" />
+        </div>
+        <button class="intro-screen__button" id="openInviteButton" type="button">
+          <span class="intro-screen__button-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3 7.5L12 14L21 7.5" />
+              <rect x="3" y="6" width="18" height="12" rx="2" />
+            </svg>
+          </span>
+          <span>Открыть приглашение</span>
+        </button>
+      </div>
+      <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+    </section>
+
+    <main class="invite">
+      <div class="background-bloom" aria-hidden="true">
+        <span class="bloom bloom--1"></span>
+        <span class="bloom bloom--2"></span>
+        <span class="bloom bloom--3"></span>
+        <span class="bloom bloom--4"></span>
+        <span class="bloom bloom--5"></span>
+        <span class="bloom bloom--6"></span>
+        <span class="bloom bloom--7"></span>
+        <span class="bloom bloom--8"></span>
+        <span class="bloom bloom--9"></span>
+        <span class="bloom bloom--10"></span>
+      </div>
+
+      <section class="hero section-floral section-floral--hero reveal">
+        <p class="hero__eyebrow">Свадебное приглашение</p>
+        <h1 class="hero__title">Андрей <span>&</span> Анна</h1>
+        <p class="hero__subtitle">С любовью приглашаем вас разделить с нами особенный день</p>
+      </section>
+
+      <section class="card floral-card section-floral section-floral--greeting card--locked reveal" id="greetingCard">
+        <div class="card__inner">
+          <p class="card__label"><span class="card__accent">Дорогие наши родные и родственники</span></p>
+          <p class="card__text card__text--script">
+            Вы получили эту ссылку, а значит мы спешим сообщить вам важную новость!
+            <br />
+            <strong class="card__accent">Мы женимся</strong>
+            <br />
+            и очень хотим разделить с вами этот счастливый праздник.
+            <br />
+            Ждем вас на нашей свадьбе!
+          </p>
+        </div>
+        <button class="card__read-button" id="readInviteButton" type="button">
+          <span class="card__read-title">Прочитать</span>
+          <span class="card__read-heart" aria-hidden="true">♥</span>
+        </button>
+      </section>
+
+      <section class="details section-floral section-floral--event reveal">
+        <article class="event-card">
+          <div class="event-card__header">
+            <h2>Свадьба Андрей &amp; Анна</h2>
+            <button class="calendar-add-button" id="openCalendarModal" type="button">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3" y="4.5" width="18" height="16" rx="3" />
+                <path d="M8 2.8V6.2" />
+                <path d="M16 2.8V6.2" />
+                <path d="M3 9.2H21" />
+                <path d="M12 13V18" />
+                <path d="M9.5 15.5H14.5" />
+              </svg>
+              <span>Добавить</span>
+            </button>
+          </div>
+
+          <div class="event-card__rows">
+            <div class="event-row">
+              <span class="event-row__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <rect x="3.2" y="4.6" width="17.6" height="16" rx="3" />
+                  <path d="M7.8 2.8V6.2" />
+                  <path d="M16.2 2.8V6.2" />
+                  <path d="M3.2 9.2H20.8" />
+                </svg>
+              </span>
+              <div class="event-row__text">
+                <small>Дата</small>
+                <p>6 сентября 2026</p>
+              </div>
+            </div>
+
+            <div class="event-row">
+              <span class="event-row__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="8.6" />
+                  <path d="M12 7.5V12L15.3 13.9" />
+                </svg>
+              </span>
+              <div class="event-row__text">
+                <small>Время</small>
+                <p>13:00 — 23:00</p>
+              </div>
+            </div>
+
+            <div class="event-row">
+              <span class="event-row__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 21C12 21 5.5 14.8 5.5 10.2C5.5 6.6 8.4 3.8 12 3.8C15.6 3.8 18.5 6.6 18.5 10.2C18.5 14.8 12 21 12 21Z" />
+                  <circle cx="12" cy="10.2" r="2.4" />
+                </svg>
+              </span>
+              <div class="event-row__text">
+                <small>Локация</small>
+                <p>Tau Hills, Алматы</p>
+                <a
+                  class="event-row__map-link"
+                  href="https://2gis.kz/almaty/firm/70000001097835953?m=77.145294%2C43.29939%2F13.38"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Открыть в 2GIS
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="calendar section-floral section-floral--calendar reveal" aria-label="Календарь торжества">
+        <h2 class="calendar__title" id="calendarTitle">Сентябрь 2026</h2>
+        <div class="calendar__weekdays" aria-hidden="true">
+          <span>ПН</span>
+          <span>ВТ</span>
+          <span>СР</span>
+          <span>ЧТ</span>
+          <span>ПТ</span>
+          <span>СБ</span>
+          <span>ВС</span>
+        </div>
+        <div class="calendar__grid" id="calendarGrid"></div>
+      </section>
+
+      <section class="timeline section-floral section-floral--timeline reveal" aria-label="Хронология свадебного дня">
+        <h2 class="section-title timeline__title">Хронология Дня</h2>
+        <p class="section-text">Наш маршрут праздника</p>
+
+        <div class="timeline__list">
+          <article class="timeline__item">
+            <div class="timeline__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none">
+                <path d="M12 56V32L32 20L52 32V56" />
+                <path d="M24 56V40C24 35.6 27.6 32 32 32C36.4 32 40 35.6 40 40V56" />
+                <path d="M20 36H12V56H52V36H44" />
+                <path d="M28 12H36" />
+                <path d="M32 8V16" />
+                <path d="M28 24V16H36V24" />
+              </svg>
+            </div>
+            <div class="timeline__content">
+              <span class="timeline__time">13:00</span>
+              <h3>Венчание</h3>
+              <p>Такой-то храм</p>
+            </div>
+          </article>
+
+          <article class="timeline__item">
+            <div class="timeline__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none">
+                <path d="M32 56C32 56 16 40 16 29C16 20.2 23.2 13 32 13C40.8 13 48 20.2 48 29C48 40 32 56 32 56Z" />
+                <circle cx="32" cy="29" r="9" />
+                <path d="M28 29L31 32L37 26" />
+              </svg>
+            </div>
+            <div class="timeline__content">
+              <span class="timeline__time">16:00</span>
+              <h3>Сбор гостей</h3>
+              <p>Tau Hills, Алматы</p>
+            </div>
+          </article>
+
+          <article class="timeline__item">
+            <div class="timeline__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none">
+                <circle cx="25" cy="37" r="12" />
+                <circle cx="39" cy="37" r="12" />
+                <path d="M31 37C31 32.6 34.6 29 39 29" />
+                <path d="M38 15L40.8 20.7L47 21.4L42.4 25.4L43.8 31.4L38 28L32.2 31.4L33.6 25.4L29 21.4L35.2 20.7L38 15Z" />
+              </svg>
+            </div>
+            <div class="timeline__content">
+              <span class="timeline__time">16:30</span>
+              <h3>Начало банкета</h3>
+              <p>Tau Hills, Алматы</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="dress-code section-floral section-floral--dress reveal">
+        <h2 class="section-title">Дресс-код</h2>
+        <p class="section-text">
+          Будем рады, если вы поддержите цветовую гамму нашего торжества
+        </p>
+
+        <div class="palette" aria-label="Палитра дресс-кода">
+          <div class="palette__item">
+            <span style="--swatch: #7f866f"></span>
+          </div>
+          <div class="palette__item">
+            <span style="--swatch: #abb0a1"></span>
+          </div>
+          <div class="palette__item">
+            <span style="--swatch: #bca19a"></span>
+          </div>
+          <div class="palette__item">
+            <span style="--swatch: #dfc0ba"></span>
+          </div>
+          <div class="palette__item">
+            <span style="--swatch: #eedfde"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="footer-note section-floral section-floral--footer reveal">
+        <p>С нетерпением ждем встречи с вами</p>
+        <h3>Андрей и Анна</h3>
+      </section>
+    </main>
+
+    <div class="calendar-modal" id="calendarModal" aria-hidden="true">
+      <div class="calendar-modal__backdrop" id="calendarModalBackdrop"></div>
+      <div class="calendar-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="calendarModalTitle">
+        <button class="calendar-modal__close" id="closeCalendarModal" type="button" aria-label="Закрыть окно">
+          ×
+        </button>
+        <h2 id="calendarModalTitle">Добавить в календарь</h2>
+        <div class="calendar-modal__actions">
+          <a id="googleCalendarLink" target="_blank" rel="noopener noreferrer">Google Calendar</a>
+          <a id="appleCalendarLink">Apple Calendar</a>
+          <a id="outlookCalendarLink" target="_blank" rel="noopener noreferrer">Outlook Calendar</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
