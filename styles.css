@@ -944,7 +944,7 @@ body.intro-active .invite {
 }
 
 .palette__item span {
-  width: clamp(56px, 12vw, 88px);
+  width: clamp(76px, 14vw, 100px);
   aspect-ratio: 1;
   display: inline-block;
   border-radius: 50%;
@@ -1015,7 +1015,7 @@ body.intro-active .invite {
 
   .palette {
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 1rem;
   }
 
   .calendar__day--selected::before {
