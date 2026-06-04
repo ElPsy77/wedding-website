@@ -496,7 +496,8 @@ body.intro-active .invite {
 }
 
 .card__text--script {
-  font-family: "Great Vibes", cursive;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
   font-size: clamp(1.6rem, 4.1vw, 2.25rem);
   line-height: 1.35;
 }
@@ -523,7 +524,8 @@ body.intro-active .invite {
 }
 
 .card__read-title {
-  font-family: "Great Vibes", cursive;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
   font-size: 1.45rem;
   line-height: 1;
   margin-top: 0.08rem;
