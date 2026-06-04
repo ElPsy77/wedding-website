@@ -929,9 +929,11 @@ body.intro-active .invite {
 }
 
 .palette {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  flex-wrap: wrap;
 }
 
 .palette__item {
@@ -994,9 +996,6 @@ body.intro-active .invite {
     padding-top: 2.2rem;
   }
 
-  .palette {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 
   .event-card__header {
     flex-direction: column;
@@ -1015,7 +1014,8 @@ body.intro-active .invite {
   }
 
   .palette {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    flex-direction: column;
+    gap: 0.8rem;
   }
 
   .calendar__day--selected::before {
