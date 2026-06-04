@@ -115,11 +115,12 @@ body.intro-active .invite {
 
 .intro-screen h1 {
   margin: 0;
-  font-family: "Bad Script", cursive !important;
-  font-size: clamp(2.4rem, 7vw, 3.8rem);
-  line-height: 1.15;
+  font-family: "Playfair Display", serif !important;
+  font-style: italic;
+  font-size: clamp(2.3rem, 6.5vw, 3.6rem);
+  line-height: 1.25;
   color: #4e5848;
-  font-weight: normal !important;
+  font-weight: 500 !important;
 }
 
 .intro-screen__photo {
