@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Свадебное приглашение | Андрей и Анна</title>
-    <meta
-      name="description"
-      content="Свадебное приглашение Андрея и Анны"
-    />
+    <meta name="description" content="Свадебное приглашение Андрея и Анны" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,7 +18,7 @@
       <div class="intro-screen__card">
         <div class="intro-screen__header">
           <p class="intro-screen__eyebrow">Добро пожаловать</p>
-          <h1>Свадьба<br>Андрея и Анны</h1>
+          <h1>Свадьба<br />Андрея и Анны</h1>
         </div>
         <div class="intro-screen__photo">
           <img src="./img/IMG_1942.JPG" alt="Андрей и Анна" />
@@ -59,9 +56,12 @@
         <p class="hero__subtitle">С любовью приглашаем вас разделить с нами особенный день</p>
       </section>
 
-      <section class="card floral-card section-floral section-floral--greeting card--locked reveal" id="greetingCard">
+      <section
+        class="card floral-card section-floral section-floral--greeting card--locked reveal"
+        id="greetingCard"
+      >
         <div class="card__inner">
-          <p class="card__label"><span class="card__accent">Дорогие наши родные и родственники</span></p>
+          <p class="card__label"><span class="card__accent">Дорогие наши родные и друзья</span></p>
           <p class="card__text card__text--script">
             Вы получили эту ссылку, а значит мы спешим сообщить вам важную новость!
             <br />
@@ -81,7 +81,7 @@
       <section class="details section-floral section-floral--event reveal">
         <article class="event-card">
           <div class="event-card__header">
-            <h2>Свадьба Андрей &amp; Анна</h2>
+            <h2>Дата и место</h2>
             <button class="calendar-add-button" id="openCalendarModal" type="button">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <rect x="3" y="4.5" width="18" height="16" rx="3" />
@@ -114,31 +114,45 @@
             <div class="event-row">
               <span class="event-row__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none">
-                  <circle cx="12" cy="12" r="8.6" />
-                  <path d="M12 7.5V12L15.3 13.9" />
+                  <path
+                    d="M12 21C12 21 5.5 14.8 5.5 10.2C5.5 6.6 8.4 3.8 12 3.8C15.6 3.8 18.5 6.6 18.5 10.2C18.5 14.8 12 21 12 21Z"
+                  />
+                  <circle cx="12" cy="10.2" r="2.4" />
                 </svg>
               </span>
               <div class="event-row__text">
-                <small>Время</small>
-                <p>13:00 — 23:00</p>
+                <small>Венчание</small>
+                <p>Иверско-Серафимовский женский монастырь</p>
+                <a
+                  class="event-row__map-link"
+                  href="https://2gis.kz/almaty/geo/9429940000795677/76.958845,43.269692"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style="border-bottom: 1px solid #cfd6c7"
+                >
+                  Открыть в 2GIS
+                </a>
               </div>
             </div>
 
             <div class="event-row">
               <span class="event-row__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M12 21C12 21 5.5 14.8 5.5 10.2C5.5 6.6 8.4 3.8 12 3.8C15.6 3.8 18.5 6.6 18.5 10.2C18.5 14.8 12 21 12 21Z" />
+                  <path
+                    d="M12 21C12 21 5.5 14.8 5.5 10.2C5.5 6.6 8.4 3.8 12 3.8C15.6 3.8 18.5 6.6 18.5 10.2C18.5 14.8 12 21 12 21Z"
+                  />
                   <circle cx="12" cy="10.2" r="2.4" />
                 </svg>
               </span>
               <div class="event-row__text">
-                <small>Локация</small>
+                <small>Сбор гостей</small>
                 <p>Tau Hills, Алматы</p>
                 <a
                   class="event-row__map-link"
                   href="https://2gis.kz/almaty/firm/70000001097835953?m=77.145294%2C43.29939%2F13.38"
                   target="_blank"
                   rel="noopener noreferrer"
+                  style="border-bottom: 1px solid #cfd6c7"
                 >
                   Открыть в 2GIS
                 </a>
@@ -148,7 +162,10 @@
         </article>
       </section>
 
-      <section class="calendar section-floral section-floral--calendar reveal" aria-label="Календарь торжества">
+      <section
+        class="calendar section-floral section-floral--calendar reveal"
+        aria-label="Календарь торжества"
+      >
         <h2 class="calendar__title" id="calendarTitle">Сентябрь 2026</h2>
         <div class="calendar__weekdays" aria-hidden="true">
           <span>ПН</span>
@@ -162,7 +179,10 @@
         <div class="calendar__grid" id="calendarGrid"></div>
       </section>
 
-      <section class="timeline section-floral section-floral--timeline reveal" aria-label="Хронология свадебного дня">
+      <section
+        class="timeline section-floral section-floral--timeline reveal"
+        aria-label="Хронология свадебного дня"
+      >
         <h2 class="section-title timeline__title">Хронология Дня</h2>
         <p class="section-text">Наш маршрут праздника</p>
 
@@ -181,14 +201,16 @@
             <div class="timeline__content">
               <span class="timeline__time">14:00</span>
               <h3>Венчание</h3>
-              <p>Такой-то храм</p>
+              <p>Иверско-Серафимовский женский монастырь</p>
             </div>
           </article>
 
           <article class="timeline__item">
             <div class="timeline__icon" aria-hidden="true">
               <svg viewBox="0 0 64 64" fill="none">
-                <path d="M32 56C32 56 16 40 16 29C16 20.2 23.2 13 32 13C40.8 13 48 20.2 48 29C48 40 32 56 32 56Z" />
+                <path
+                  d="M32 56C32 56 16 40 16 29C16 20.2 23.2 13 32 13C40.8 13 48 20.2 48 29C48 40 32 56 32 56Z"
+                />
                 <circle cx="32" cy="29" r="9" />
                 <path d="M28 29L31 32L37 26" />
               </svg>
@@ -203,11 +225,17 @@
           <article class="timeline__item">
             <div class="timeline__icon" aria-hidden="true">
               <svg viewBox="0 0 64 64" fill="none">
-                <g transform="translate(-8, -8) scale(1.25)">
-                  <circle cx="25" cy="37" r="12" />
-                  <circle cx="39" cy="37" r="12" />
-                  <path d="M31 37C31 32.6 34.6 29 39 29" />
-                  <path d="M38 15L40.8 20.7L47 21.4L42.4 25.4L43.8 31.4L38 28L32.2 31.4L33.6 25.4L29 21.4L35.2 20.7L38 15Z" />
+                <!-- Left Ring -->
+                <circle cx="24" cy="38" r="13" />
+                <!-- Right Ring -->
+                <circle cx="40" cy="38" r="13" />
+                <!-- Interlock Arc (Left ring segment over right ring at top) -->
+                <path d="M32 27.75 A 13 13 0 0 1 37 38" />
+                <!-- Heart on top -->
+                <g transform="translate(32, 17) scale(0.7) translate(-12, -12)">
+                  <path
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                  />
                 </g>
               </svg>
             </div>
@@ -250,9 +278,7 @@
 
       <section class="dress-code section-floral section-floral--dress reveal">
         <h2 class="section-title">Дресс-код</h2>
-        <p class="section-text">
-          Будем рады, если вы поддержите цветовую гамму нашего торжества
-        </p>
+        <p class="section-text">Будем рады, если вы поддержите цветовую гамму нашего торжества</p>
 
         <div class="palette" aria-label="Палитра дресс-кода">
           <div class="palette__item">
@@ -281,8 +307,18 @@
 
     <div class="calendar-modal" id="calendarModal" aria-hidden="true">
       <div class="calendar-modal__backdrop" id="calendarModalBackdrop"></div>
-      <div class="calendar-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="calendarModalTitle">
-        <button class="calendar-modal__close" id="closeCalendarModal" type="button" aria-label="Закрыть окно">
+      <div
+        class="calendar-modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="calendarModalTitle"
+      >
+        <button
+          class="calendar-modal__close"
+          id="closeCalendarModal"
+          type="button"
+          aria-label="Закрыть окно"
+        >
           ×
         </button>
         <h2 id="calendarModalTitle">Добавить в календарь</h2>
