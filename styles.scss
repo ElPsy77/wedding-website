@@ -813,7 +813,7 @@ body.intro-active .invite {
   &__day--selected::before {
     content: "♡";
     position: absolute;
-    font-size: clamp(4.2rem, 10vw, 7rem);
+    font-size: clamp(4.8rem, 11vw, 7.5rem);
     line-height: 1;
     color: #d75866;
     left: 50%;
