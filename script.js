@@ -14,8 +14,8 @@ const outlookCalendarLink = document.getElementById('outlookCalendarLink');
 
 const weddingEvent = {
   title: 'Свадьба Андрей & Анна',
-  description: 'Свадебное торжество Андрея и Анны.',
-  location: 'Tau Hills, Алматы',
+  description: 'Свадебное торжество Андрея и Анны. Сначала венчание, затем праздник в Tau Hills.',
+  location: 'Иверско-Серафимовский монастырь / Tau Hills, Алматы',
   year: 2026,
   month: 8, // September (0-indexed)
   day: 6,
@@ -59,14 +59,23 @@ if (readInviteButton && greetingCard) {
 function initCalendarLinks() {
   if (!googleCalendarLink || !appleCalendarLink || !outlookCalendarLink) return;
 
-  const startDate = '20260906';
-  const endDate = '20260907';
+  const { year, month, day, title, description, location } = weddingEvent;
+  
+  // Format dates for Google and Outlook (YYYYMMDD)
+  // Month is 0-indexed in JS, so we add 1 for the string representation
+  const dateObj = new Date(year, month, day);
+  const nextDayObj = new Date(year, month, day + 1);
+  
+  const formatDate = (d) => d.toISOString().replace(/-|:|\.\d+/g, '').split('T')[0];
+  const startDate = formatDate(dateObj);
+  const endDate = formatDate(nextDayObj);
+
   const googleUrl = new URL('https://calendar.google.com/calendar/render');
   googleUrl.searchParams.set('action', 'TEMPLATE');
-  googleUrl.searchParams.set('text', weddingEvent.title);
+  googleUrl.searchParams.set('text', title);
   googleUrl.searchParams.set('dates', `${startDate}/${endDate}`);
-  googleUrl.searchParams.set('details', weddingEvent.description);
-  googleUrl.searchParams.set('location', weddingEvent.location);
+  googleUrl.searchParams.set('details', description);
+  googleUrl.searchParams.set('location', location);
   googleCalendarLink.href = googleUrl.toString();
 
   const currentDir = window.location.pathname.replace(/[^/]*$/, '');
@@ -76,12 +85,16 @@ function initCalendarLinks() {
   const outlookUrl = new URL('https://outlook.live.com/calendar/0/deeplink/compose');
   outlookUrl.searchParams.set('path', '/calendar/action/compose');
   outlookUrl.searchParams.set('rru', 'addevent');
-  outlookUrl.searchParams.set('subject', weddingEvent.title);
-  outlookUrl.searchParams.set('startdt', '2026-09-06');
-  outlookUrl.searchParams.set('enddt', '2026-09-07');
+  outlookUrl.searchParams.set('subject', title);
+  
+  // Format for Outlook YYYY-MM-DD
+  const formatOutlook = (d) => d.toISOString().split('T')[0];
+  outlookUrl.searchParams.set('startdt', formatOutlook(dateObj));
+  outlookUrl.searchParams.set('enddt', formatOutlook(nextDayObj));
+  
   outlookUrl.searchParams.set('allday', 'true');
-  outlookUrl.searchParams.set('body', weddingEvent.description);
-  outlookUrl.searchParams.set('location', weddingEvent.location);
+  outlookUrl.searchParams.set('body', description);
+  outlookUrl.searchParams.set('location', location);
   outlookCalendarLink.href = outlookUrl.toString();
 }
 
