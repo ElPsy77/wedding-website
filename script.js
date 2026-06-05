@@ -90,7 +90,24 @@ function initCalendarLinks() {
   googleUrl.searchParams.set('location', location);
   googleCalendarLink.href = googleUrl.toString();
 
-  appleCalendarLink.href = 'wedding-andrey-anna.ics';
+  // Улучшенная генерация Apple Calendar (.ics)
+  const icsContent = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Wedding//AndreyAnna//RU',
+    'BEGIN:VEVENT',
+    `DTSTART:${startDate}T090000Z`,
+    `DTEND:${endDate}T210000Z`,
+    `SUMMARY:${title}`,
+    `DESCRIPTION:${description.replace(/\n/g, '\\n')}`,
+    `LOCATION:${location}`,
+    'END:VEVENT',
+    'END:VCALENDAR'
+  ].join('\n');
+
+  const base64Ics = btoa(unescape(encodeURIComponent(icsContent)));
+  appleCalendarLink.href = `data:text/calendar;base64,${base64Ics}`;
+  appleCalendarLink.setAttribute('download', 'wedding-event.ics');
 
   const outlookUrl = new URL('https://outlook.live.com/calendar/0/deeplink/compose');
   outlookUrl.searchParams.set('path', '/calendar/action/compose');
