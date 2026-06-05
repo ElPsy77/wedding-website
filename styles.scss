@@ -1035,20 +1035,38 @@ body.intro-active .invite {
   color: #666;
   margin: 0;
 }
-
 .rsvp-premium-card {
   position: relative;
   z-index: 1;
   max-width: 540px;
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.92);
+  background: transparent;
   backdrop-filter: blur(8px);
   padding: clamp(2rem, 7vw, 3.5rem) clamp(1.2rem, 5vw, 3rem);
   border-radius: 4px;
   box-shadow: 0 15px 45px rgba(0, 0, 0, 0.04);
 }
+...
+@media (max-width: 460px) {
+  .rsvp__title {
+    font-size: 1.15rem;
+    letter-spacing: 0.14em;
+  }
 
-.rsvp__gold-line {
+  .rsvp__radio-text {
+    font-size: 0.95rem;
+  }
+
+  .rsvp__input {
+    height: 58px;
+    font-size: 0.95rem;
+  }
+
+  .rsvp__submit-premium {
+    height: 64px;
+    font-size: 1.1rem;
+  }
+...
   position: absolute;
   top: 12px;
   left: 12px;
