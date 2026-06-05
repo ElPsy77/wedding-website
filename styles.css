@@ -1036,11 +1036,11 @@ body.intro-active .invite {
   z-index: 1;
   max-width: 540px;
   margin: 0 auto;
-  background: transparent;
-  backdrop-filter: blur(8px);
+  background: none;
+  backdrop-filter: none;
   padding: clamp(2rem, 7vw, 3.5rem) clamp(1.2rem, 5vw, 3rem);
   border-radius: 4px;
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.04);
+  box-shadow: none;
 }
 ...
 @media (max-width: 460px) {
