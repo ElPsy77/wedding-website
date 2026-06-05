@@ -813,7 +813,7 @@ body.intro-active .invite {
 .calendar__day--selected::before {
   content: "♡";
   position: absolute;
-  font-size: clamp(4.8rem, 11vw, 7.5rem);
+  font-size: clamp(5.6rem, 13vw, 8.8rem);
   line-height: 1;
   color: #d75866;
   left: 50%;
@@ -1020,7 +1020,7 @@ body.intro-active .invite {
   }
 
   .calendar__day--selected::before {
-    font-size: clamp(4.4rem, 18vw, 5.8rem);
+    font-size: clamp(5.2rem, 20vw, 6.8rem);
   }
 
   .timeline__time {

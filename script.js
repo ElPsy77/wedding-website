@@ -14,11 +14,22 @@ const outlookCalendarLink = document.getElementById('outlookCalendarLink');
 
 const weddingEvent = {
   title: 'Свадьба Андрей & Анна',
-  description: 'Свадебное торжество Андрея и Анны. Сначала венчание, затем праздник в Tau Hills.',
+  description:
+    'ГРАФИК ПРАЗДНИКА:\n\n' +
+    '14:00 — Венчание\n' +
+    'Иверско-Серафимовский женский монастырь\n' +
+    'https://2gis.kz/almaty/geo/9429940000795677/76.958845,43.269692\n\n' +
+    '16:00 — Сбор гостей\n' +
+    'Tau Hills, Алматы\n' +
+    'https://2gis.kz/almaty/firm/70000001097835953\n\n' +
+    '17:00 — Церемония\n' +
+    'Tau Hills, Алматы\n\n' +
+    '18:00 — Банкет\n' +
+    'Tau Hills, Алматы',
   location: 'Иверско-Серафимовский монастырь / Tau Hills, Алматы',
   year: 2026,
   month: 8, // September (0-indexed)
-  day: 6,
+  day: 20,
 };
 
 function burstConfetti() {
@@ -66,7 +77,8 @@ function initCalendarLinks() {
   const dateObj = new Date(year, month, day);
   const nextDayObj = new Date(year, month, day + 1);
   
-  const formatDate = (d) => d.toISOString().replace(/-|:|\.\d+/g, '').split('T')[0];
+  const pad = (n) => String(n).padStart(2, '0');
+  const formatDate = (d) => `${d.getFullYear()}${pad(d.getMonth() + 1)}${pad(d.getDate())}`;
   const startDate = formatDate(dateObj);
   const endDate = formatDate(nextDayObj);
 
@@ -78,9 +90,7 @@ function initCalendarLinks() {
   googleUrl.searchParams.set('location', location);
   googleCalendarLink.href = googleUrl.toString();
 
-  const currentDir = window.location.pathname.replace(/[^/]*$/, '');
-  const icsHttpUrl = `${window.location.origin}${currentDir}wedding-andrey-anna.ics`;
-  appleCalendarLink.href = icsHttpUrl.replace(/^https?:\/\//, 'webcal://');
+  appleCalendarLink.href = 'wedding-andrey-anna.ics';
 
   const outlookUrl = new URL('https://outlook.live.com/calendar/0/deeplink/compose');
   outlookUrl.searchParams.set('path', '/calendar/action/compose');
@@ -88,7 +98,7 @@ function initCalendarLinks() {
   outlookUrl.searchParams.set('subject', title);
   
   // Format for Outlook YYYY-MM-DD
-  const formatOutlook = (d) => d.toISOString().split('T')[0];
+  const formatOutlook = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
   outlookUrl.searchParams.set('startdt', formatOutlook(dateObj));
   outlookUrl.searchParams.set('enddt', formatOutlook(nextDayObj));
   

@@ -4,10 +4,10 @@ PRODID:-//Wedding Invite//RU
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260906
-DTEND;VALUE=DATE:20260907
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20260921
 SUMMARY:Свадьба Андрей & Анна
-DESCRIPTION:Свадебное торжество Андрея и Анны.
-LOCATION:Место будет объявлено позже
+DESCRIPTION:ГРАФИК ПРАЗДНИКА:\n\n14:00 — Венчание\nИверско-Серафимовский женский монастырь\nhttps://2gis.kz/almaty/geo/9429940000795677/76.958845\,43.269692\n\n16:00 — Сбор гостей\nTau Hills\, Алматы\nhttps://2gis.kz/almaty/firm/70000001097835953\n\n17:00 — Церемония\nTau Hills\, Алматы\n\n18:00 — Банкет\nTau Hills\, Алматы
+LOCATION:Иверско-Серафимовский монастырь / Tau Hills\, Алматы
 END:VEVENT
 END:VCALENDAR
