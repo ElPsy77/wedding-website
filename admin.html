@@ -118,6 +118,30 @@
         .stat-card h3 { font-size: 0.8rem; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; letter-spacing: 0.1em; }
         .stat-card p { font-size: 2rem; font-weight: 300; margin: 0; color: var(--primary); }
 
+        /* Filters */
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .filters select, .filters input {
+            width: 100%;
+            height: 45px;
+            border-radius: 10px;
+            border: 1px solid var(--line);
+            padding: 0 15px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            background: white;
+            outline: none;
+        }
+
+        .filters select:focus, .filters input:focus {
+            border-color: var(--primary);
+        }
+
         /* Table */
         .table-container {
             background: white;
@@ -201,6 +225,29 @@
             <div class="stat-card">
                 <h3>Не смогут</h3>
                 <p id="statNo">0</p>
+            </div>
+        </div>
+
+        <div class="filters">
+            <div class="filter-group">
+                <input type="text" id="searchInput" placeholder="Поиск по имени..." oninput="handleFilters()">
+            </div>
+            <div class="filter-group">
+                <select id="statusFilter" onchange="handleFilters()">
+                    <option value="all">Все статусы</option>
+                    <option value="yes">Придут</option>
+                    <option value="no">Не придут</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <select id="drinkFilter" onchange="handleFilters()">
+                    <option value="all">Все напитки</option>
+                    <option value="Вино белое">Вино белое</option>
+                    <option value="Вино красное">Вино красное</option>
+                    <option value="Водка">Водка</option>
+                    <option value="Виски">Виски</option>
+                    <option value="Безалкогольные напитки">Безалкогольные напитки</option>
+                </select>
             </div>
         </div>
 
@@ -314,10 +361,6 @@
         document.getElementById('passwordInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') checkPassword();
         });
-    </script>
-</body>
-</html>
-     });
     </script>
 </body>
 </html>
