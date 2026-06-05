@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@1,400;1,500;1,600&family=Mulish:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@1,400;1,500;1,600&family=Mulish:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -96,7 +96,6 @@
           </div>
 
           <div class="event-card__rows">
-
             <div class="event-row">
               <span class="event-row__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none">
@@ -282,6 +281,103 @@
           <div class="palette__item">
             <span style="--swatch: #eedfde"></span>
           </div>
+        </div>
+      </section>
+
+      <section class="rsvp section-floral section-floral--rsvp reveal" id="rsvp">
+        <span class="bloom bloom--rsvp-1"></span>
+        <span class="bloom bloom--rsvp-2"></span>
+        <span class="bloom bloom--rsvp-3"></span>
+
+        <div class="rsvp__header">
+          <h2 class="rsvp__title">
+            ЧТОБЫ ВСЕ ПРОШЛО<br />ИДЕАЛЬНО, ОТВЕТЬТЕ,<br />ПОЖАЛУЙСТА НА НЕСКОЛЬКО<br />ВОПРОСОВ:
+          </h2>
+          <p class="rsvp__subtitle">Просьба заполнить анкету до 25 августа.</p>
+        </div>
+
+        <div class="rsvp-premium-card">
+          <div class="rsvp__gold-line"></div>
+          <form class="rsvp__form" id="rsvpForm">
+            <div class="rsvp__group">
+              <label for="guestName" class="rsvp__label">Ваше Имя и Фамилия</label>
+              <input
+                type="text"
+                id="guestName"
+                name="name"
+                placeholder="Иван Иванов, Мария Иванова"
+                required
+                class="rsvp__input"
+              />
+            </div>
+
+            <div class="rsvp__group">
+              <span class="rsvp__label">Сможете ли вы присутствовать?</span>
+              <div class="rsvp__radio-group">
+                <label class="rsvp__radio-item">
+                  <input type="radio" name="status" value="Я приду" checked />
+                  <span class="rsvp__radio-mark"></span>
+                  <span class="rsvp__radio-text">Обязательно приду (придём)</span>
+                </label>
+                <label class="rsvp__radio-item">
+                  <input type="radio" name="status" value="К сожалению, не смогу" />
+                  <span class="rsvp__radio-mark"></span>
+                  <span class="rsvp__radio-text">Не смогу присутствовать (не сможем)</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="rsvp__group" id="drinksGroup">
+              <span class="rsvp__label">Ваши предпочтения по напиткам:</span>
+              <div class="rsvp__checkbox-group">
+                <label class="rsvp__checkbox-item">
+                  <input type="checkbox" name="drinks" value="Вино белое" />
+                  <span class="rsvp__checkbox-mark"></span>
+                  <span class="rsvp__radio-text">Вино белое</span>
+                </label>
+                <label class="rsvp__checkbox-item">
+                  <input type="checkbox" name="drinks" value="Вино красное" />
+                  <span class="rsvp__checkbox-mark"></span>
+                  <span class="rsvp__radio-text">Вино красное</span>
+                </label>
+                <label class="rsvp__checkbox-item">
+                  <input type="checkbox" name="drinks" value="Водка" />
+                  <span class="rsvp__checkbox-mark"></span>
+                  <span class="rsvp__radio-text">Водка</span>
+                </label>
+                <label class="rsvp__checkbox-item">
+                  <input type="checkbox" name="drinks" value="Виски" />
+                  <span class="rsvp__checkbox-mark"></span>
+                  <span class="rsvp__radio-text">Виски</span>
+                </label>
+                <label class="rsvp__checkbox-item">
+                  <input type="checkbox" name="drinks" value="Безалкогольные напитки" />
+                  <span class="rsvp__checkbox-mark"></span>
+                  <span class="rsvp__radio-text">Безалкогольные напитки</span>
+                </label>
+              </div>
+            </div>
+
+            <button type="submit" class="rsvp__submit-premium">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M22 2L11 13"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M22 2L15 22L11 13L2 9L22 2Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>Отправить</span>
+            </button>
+          </form>
         </div>
       </section>
 

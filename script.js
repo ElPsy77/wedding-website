@@ -163,6 +163,160 @@ if ('IntersectionObserver' in window) {
   revealItems.forEach((item) => item.classList.add('is-visible'));
 }
 
+const rsvpForm = document.getElementById('rsvpForm');
+
+if (rsvpForm) {
+  const statusRadios = rsvpForm.querySelectorAll('input[name="status"]');
+  const drinksGroup = document.getElementById('drinksGroup');
+
+  // Show/hide drinks based on attendance
+  statusRadios.forEach(radio => {
+    radio.addEventListener('change', (e) => {
+      if (e.target.value === 'Я приду') {
+        drinksGroup.style.display = 'grid';
+      } else {
+        drinksGroup.style.display = 'none';
+      }
+    });
+  });
+
+  rsvpForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = rsvpForm.querySelector('.rsvp__submit-premium');
+    const originalBtnText = submitBtn.innerHTML;
+    
+    const formData = new FormData(rsvpForm);
+    const name = formData.get('name');
+    const status = formData.get('status');
+    const drinks = formData.getAll('drinks').join(', ') || 'Не выбрано';
+    
+    // Config
+    const BOT_TOKEN = '8824924494:AAHySQwNCI98n2cxypSYMQ6E5VCdbcExY6I';
+    const SHEETDB_API_URL = 'https://sheetdb.io/api/v1/5wq032yityxfb';
+    
+    // Список ID тех, кто должен получать уведомления
+    const CHAT_IDS = [
+      '605576519', // Твой ID
+      '813276603'  // Новый ID
+    ]; 
+    
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('ru-RU');
+    const timeStr = now.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+    const fullDateTime = `${dateStr} ${timeStr}`;
+
+    let telegramText = `
+<b>💍 Новая заявка RSVP</b>
+
+<b>👤 Гость:</b> ${name}
+<b>❓ Статус:</b> ${status === 'Я приду' || status === 'Мы придем' ? '✅ ' + status : '❌ ' + status}
+    `.trim();
+
+    if (status === 'Я приду') {
+      telegramText += `\n<b>🍷 Напитки:</b> ${drinks}`;
+    }
+
+    telegramText += `\n<b>⏰ Время:</b> ${fullDateTime}\n\n#свадьба #rsvp`;
+
+    // Show loading state
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Отправка...';
+
+    try {
+      // 1. Отправляем данные в Google Таблицу через SheetDB
+      const sheetRequest = fetch(SHEETDB_API_URL, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          data: [
+            {
+              'name': name,
+              'status': status,
+              'drinks': status === 'Я приду' ? drinks : '—',
+              'datetime': fullDateTime
+            }
+          ]
+        })
+      });
+
+      // 2. Отправляем сообщения в Telegram каждому получателю
+      const telegramRequests = CHAT_IDS.map(id => 
+        fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: id,
+            text: telegramText,
+            parse_mode: 'HTML'
+          })
+        })
+      );
+
+      // Ждем выполнения всех запросов
+      const [sheetResponse, ...telegramResponses] = await Promise.all([sheetRequest, ...telegramRequests]);
+      
+      const allOk = sheetResponse.ok && telegramResponses.every(r => r.ok);
+
+      if (allOk) {
+        // Success state with petal burst
+        const cardInner = rsvpForm.closest('.rsvp-premium-card');
+        
+        // Trigger petal burst
+        burstPetals();
+
+        cardInner.innerHTML = `
+          <div class="rsvp__gold-line"></div>
+          <div class="rsvp__success-premium" style="animation: fadeUp 0.8s ease-out forwards;">
+            <span class="icon">🌸</span>
+            <h3>Спасибо!</h3>
+            <p>Ваш ответ успешно сохранен и отправлен Андрею и Анне.</p>
+          </div>
+        `;
+      } else {
+        throw new Error('Failed to send to one or more services');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Произошла ошибка при отправке. Пожалуйста, попробуйте позже или напишите нам лично.');
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
+    }
+  });
+}
+
+function burstPetals() {
+  const container = document.getElementById('rsvp');
+  if (!container) return;
+  
+  const colors = ['#f2d6db', '#cddcc6', '#efdeda', '#f7e6e8'];
+  
+  for (let i = 0; i < 40; i++) {
+    const petal = document.createElement('div');
+    petal.className = 'bloom';
+    petal.style.width = Math.random() * 40 + 20 + 'px';
+    petal.style.left = Math.random() * 100 + '%';
+    petal.style.top = '100%';
+    petal.style.opacity = '0.8';
+    petal.style.zIndex = '10';
+    petal.style.background = `radial-gradient(circle at 50% 50%, ${colors[Math.floor(Math.random() * colors.length)]} 0%, transparent 80%)`;
+    
+    container.appendChild(petal);
+    
+    const animation = petal.animate([
+      { transform: 'translate(0, 0) rotate(0deg)', opacity: 0.8 },
+      { transform: `translate(${(Math.random() - 0.5) * 400}px, -${Math.random() * 500 + 300}px) rotate(${Math.random() * 720}deg)`, opacity: 0 }
+    ], {
+      duration: 2000 + Math.random() * 1000,
+      easing: 'cubic-bezier(0, .9, .57, 1)'
+    });
+    
+    animation.onfinish = () => petal.remove();
+  }
+}
+
 const calendarTitle = document.getElementById('calendarTitle');
 const calendarGrid = document.getElementById('calendarGrid');
 
