@@ -225,6 +225,7 @@
     <script>
         const API_URL = 'https://sheetdb.io/api/v1/5wq032yityxfb';
         const CORRECT_PASSWORD = 'wedding2026';
+        let GUEST_DATA = [];
 
         function checkPassword() {
             const input = document.getElementById('passwordInput').value;
@@ -244,6 +245,7 @@
                 
                 // Sort by date (newest first)
                 data.reverse();
+                GUEST_DATA = data;
 
                 renderStats(data);
                 renderTable(data);
@@ -252,6 +254,28 @@
                 console.error('Error fetching data:', error);
                 document.getElementById('loader').textContent = 'Ошибка загрузки данных.';
             }
+        }
+
+        function handleFilters() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const statusFilter = document.getElementById('statusFilter').value;
+            const drinkFilter = document.getElementById('drinkFilter').value;
+
+            const filtered = GUEST_DATA.filter(item => {
+                const nameMatch = (item.name || '').toLowerCase().includes(searchTerm);
+                
+                const isComing = item.status === 'Я приду' || item.status === 'Мы придем' || item.status === 'Обязательно приду (придём)';
+                const statusMatch = statusFilter === 'all' || 
+                                   (statusFilter === 'yes' && isComing) || 
+                                   (statusFilter === 'no' && !isComing);
+                
+                const drinkMatch = drinkFilter === 'all' || 
+                                  (item.drinks || '').includes(drinkFilter);
+
+                return nameMatch && statusMatch && drinkMatch;
+            });
+
+            renderTable(filtered);
         }
 
         function renderStats(data) {
@@ -290,6 +314,10 @@
         document.getElementById('passwordInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') checkPassword();
         });
+    </script>
+</body>
+</html>
+     });
     </script>
 </body>
 </html>
