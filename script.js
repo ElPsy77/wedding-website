@@ -109,7 +109,7 @@ function initCalendarLinks() {
   appleCalendarLink.href = `data:text/calendar;base64,${base64Ics}`;
   appleCalendarLink.setAttribute('download', 'wedding-event.ics');
 
-  const outlookUrl = new URL('https://outlook.live.com/calendar/0/deeplink/compose');
+  const outlookUrl = new URL('https://outlook.office.com/calendar/0/deeplink/compose');
   outlookUrl.searchParams.set('path', '/calendar/action/compose');
   outlookUrl.searchParams.set('rru', 'addevent');
   outlookUrl.searchParams.set('subject', title);
